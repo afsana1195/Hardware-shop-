@@ -1,0 +1,6 @@
+{
+  "name": "Jyoti Hardware & Construction",
+  "description": "Premium e-commerce platform for Jyoti Hardware & Construction in Bangalore. Shop cement, power tools, paints, electricals, plumbing, and building materials with real-time stock, instant WhatsApp orders, and site delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
