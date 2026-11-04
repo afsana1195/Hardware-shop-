@@ -15,6 +15,7 @@ import {
 import { Product } from '../types';
 import { getStockStatus } from '../utils/inventory';
 import { formatProductInquiryWhatsApp, createWhatsAppLink } from '../utils/whatsapp';
+import { handleImageError } from '../utils/fallbackImage';
 
 interface ProductDetailModalProps {
   product: Product | null;
@@ -87,6 +88,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <img
                   src={imagesList[selectedImageIndex] || product.image}
                   alt={product.name}
+                  loading="lazy"
+                  onError={handleImageError}
                   className="w-full h-full object-cover object-center"
                 />
                 {product.badge && (
@@ -114,7 +117,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                           : 'border-stone-200 opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={imgUrl} alt="" className="w-full h-full object-cover" />
+                      <img
+                        src={imgUrl}
+                        alt=""
+                        loading="lazy"
+                        onError={handleImageError}
+                        className="w-full h-full object-cover"
+                      />
                     </button>
                   ))}
                 </div>

@@ -135,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({
               Top Categories
             </h4>
             <ul className="space-y-2 text-xs">
-              {CATEGORIES_DATA.slice(0, 6).map((cat) => (
+              {CATEGORIES_DATA.map((cat) => (
                 <li key={cat.name}>
                   <button
                     onClick={() => {
@@ -143,7 +143,7 @@ export const Footer: React.FC<FooterProps> = ({
                       setCurrentTab('shop');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-stone-400 hover:text-red-400 transition-colors text-left"
+                    className="text-stone-400 hover:text-red-400 transition-colors text-left cursor-pointer"
                   >
                     {cat.name}
                   </button>

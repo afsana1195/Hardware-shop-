@@ -25,10 +25,10 @@ import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
 
 const STORAGE_KEYS = {
-  PRODUCTS: 'jhc_products_v2',
-  CART: 'jhc_cart_v2',
-  ORDERS: 'jhc_orders_v2',
-  QUOTES: 'jhc_quotes_v2',
+  PRODUCTS: 'jhc_products_v3',
+  CART: 'jhc_cart_v3',
+  ORDERS: 'jhc_orders_v3',
+  QUOTES: 'jhc_quotes_v3',
 };
 
 export default function App() {
@@ -38,12 +38,19 @@ export default function App() {
       const saved = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
       if (saved) {
         const parsed: Product[] = JSON.parse(saved);
-        const existingIds = new Set(parsed.map((p) => p.id));
-        const missing = INITIAL_PRODUCTS.filter((p) => !existingIds.has(p.id));
-        if (missing.length > 0) {
-          return [...missing, ...parsed];
-        }
-        return parsed;
+        const initialMap = new Map(INITIAL_PRODUCTS.map((p) => [p.id, p]));
+        return parsed.map((p) => {
+          const fresh = initialMap.get(p.id);
+          if (fresh) {
+            return {
+              ...p,
+              image: fresh.image,
+              images: fresh.images,
+              category: fresh.category,
+            };
+          }
+          return p;
+        });
       }
     } catch (e) {
       console.warn('Failed loading products from storage', e);
@@ -396,7 +403,7 @@ export default function App() {
       />
 
       {/* Main View Router */}
-      <main className="flex-1">
+      <main className="flex-1 pb-16 sm:pb-8">
         {currentTab === 'home' && (
           <HomeView
             products={products}

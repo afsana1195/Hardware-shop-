@@ -13,9 +13,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 342,
     stock: 250,
     unit: '50 kg Bag',
-    image: 'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
     images: [
-      'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f7?auto=format&fit=crop&w=800&q=80',
     ],
@@ -279,8 +279,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 98,
     stock: 22,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80'],
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    images: ['https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'],
     description: 'Powerful 900W motor designed for heavy trade applications with spiral bevel gears.',
     specifications: { 'Power': '900W', 'Disc': '115mm', 'Speed': '11,000 RPM' },
     features: ['High durability spiral bevel gears', 'Ergonomic side handle'],
@@ -1005,9 +1005,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 380,
     stock: 35,
     unit: '10 kg Bucket',
-    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
     images: [
-      'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
     ],
     description:
       'The undisputed champion in woodworking adhesives. Fevicol SH synthetic resin formula develops an unbreakable bond between wood, ply, laminates, veneer, and MDF. Dries with a clear bond line.',
@@ -1042,9 +1042,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 195,
     stock: 28,
     unit: '12 kg Dual Pack Kit',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
     images: [
-      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
     ],
     description:
       'Two-component cementitious acrylic polymer modified flexible waterproofing coating for sunken slabs, bathrooms, balconies, water tanks, and building podiums. Accommodates thermal movement without rupturing.',
@@ -1073,9 +1073,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 140,
     stock: 20,
     unit: '1.8 kg (Resin + Hardener)',
-    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
     images: [
-      'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
     ],
     description:
       'Heavy-duty industrial two-part epoxy paste adhesive. Bonds marble, granite slabs, structural steel, ceramic tiles, and glass with monumental shear and peel resistance.',
@@ -1093,11 +1093,11 @@ export const INITIAL_PRODUCTS: Product[] = [
 
 export const CATEGORIES_DATA = [
   {
-    name: 'Cement & Construction Materials',
+    name: 'Building Materials',
     icon: 'Building2',
     itemCount: 48,
-    image: 'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=600&q=80',
-    description: 'PPC & OPC cement, Tata Tiscon steel rebars, river sand, M-sand, aggregate gravel & red bricks.',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80',
+    description: 'UltraTech & Birla PPC cement, Tata Tiscon steel rebars, river sand, M-sand, aggregate gravel & red bricks.',
   },
   {
     name: 'Power Tools',
@@ -1121,7 +1121,7 @@ export const CATEGORIES_DATA = [
     description: 'Havells FR copper cables, modular switches, MCBs, distribution boards & conduits.',
   },
   {
-    name: 'Plumbing Supplies',
+    name: 'Plumbing',
     icon: 'Pipette',
     itemCount: 88,
     image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80',
@@ -1142,10 +1142,10 @@ export const CATEGORIES_DATA = [
     description: 'ISI marked safety helmets, 3M N95 silica respirators, steel-toe site boots & harness belts.',
   },
   {
-    name: 'Adhesives & Fasteners',
+    name: 'Adhesives & Waterproofing',
     icon: 'Layers',
     itemCount: 56,
-    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
     description: 'Fevicol SH resin, Dr. Fixit waterproofing polymer, Araldite epoxy & anchor bolts.',
   },
 ];

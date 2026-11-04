@@ -43,7 +43,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
   const filteredTrending = products.filter((p) => {
     if (activeTrendingTab === 'All') return p.isTrending || p.isFeatured;
-    return p.category.toLowerCase().includes(activeTrendingTab.toLowerCase());
+    const cat = p.category.toLowerCase();
+    const tab = activeTrendingTab.toLowerCase();
+    if (tab === 'building materials' && (cat.includes('cement') || cat.includes('building material'))) return true;
+    if (tab === 'power tools' && cat.includes('tool')) return true;
+    if (tab === 'hardware' && cat.includes('hardware')) return true;
+    if (tab === 'safety' && cat.includes('safety')) return true;
+    return cat.includes(tab);
   }).slice(0, 8);
 
   const bestSellers = products.filter((p) => p.badge === 'Best Seller' || p.rating >= 4.9).slice(0, 4);
@@ -75,13 +81,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
             {/* Category Filter Pills */}
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
-              {['All', 'Cement', 'Tools', 'Paints', 'Plumbing', 'Electrical'].map((tab) => (
+              {['All', 'Building Materials', 'Power Tools', 'Paints', 'Plumbing', 'Electrical', 'Hardware'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTrendingTab(tab)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shrink-0 ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shrink-0 cursor-pointer ${
                     activeTrendingTab === tab
-                      ? 'bg-red-600 text-white shadow-sm'
+                      ? 'bg-red-600 text-white shadow-xs'
                       : 'bg-white text-stone-700 hover:bg-stone-200 border border-stone-200'
                   }`}
                 >

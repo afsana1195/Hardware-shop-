@@ -8,6 +8,7 @@ import {
 import { Product } from '../types';
 import { getStockStatus } from '../utils/inventory';
 import { formatProductInquiryWhatsApp, createWhatsAppLink } from '../utils/whatsapp';
+import { handleImageError } from '../utils/fallbackImage';
 
 interface ProductCardProps {
   product: Product;
@@ -57,6 +58,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             src={product.image}
             alt={product.name}
             loading="lazy"
+            onError={handleImageError}
             className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
           />
           {discountPercent > 0 && !isSoldOut && (
@@ -155,6 +157,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           src={product.image}
           alt={product.name}
           loading="lazy"
+          onError={handleImageError}
           className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
         />
 

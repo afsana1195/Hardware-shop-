@@ -8,6 +8,7 @@ import {
   Clock,
   Sparkles,
 } from 'lucide-react';
+import { handleImageError } from '../utils/fallbackImage';
 
 interface HeroBannerProps {
   onShopNow: () => void;
@@ -126,6 +127,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onShopNow, onGetQuote })
                   <img
                     src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
                     alt="Jyoti Hardware Warehouse and Site Delivery"
+                    loading="lazy"
+                    onError={handleImageError}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">

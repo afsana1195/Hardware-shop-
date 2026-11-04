@@ -66,7 +66,26 @@ export function filterAndSortProducts(
 
   // 2. Category
   if (filters.category && filters.category !== 'All') {
-    result = result.filter((p) => p.category === filters.category);
+    const target = filters.category.toLowerCase().trim();
+    result = result.filter((p) => {
+      const pCat = p.category.toLowerCase().trim();
+      if (pCat === target) return true;
+      if (target === 'plumbing' && pCat.includes('plumb')) return true;
+      if (target === 'plumbing supplies' && pCat.includes('plumb')) return true;
+      if (
+        (target === 'building materials' || target === 'cement & construction materials') &&
+        (pCat.includes('cement') || pCat.includes('building material') || pCat.includes('construction'))
+      ) {
+        return true;
+      }
+      if (
+        (target === 'adhesives & waterproofing' || target === 'adhesives & fasteners') &&
+        (pCat.includes('adhesive') || pCat.includes('waterproof') || pCat.includes('fastener'))
+      ) {
+        return true;
+      }
+      return false;
+    });
   }
 
   // 3. Brands

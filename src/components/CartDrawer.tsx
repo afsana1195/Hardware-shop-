@@ -19,6 +19,7 @@ import {
   FREE_SHIPPING_THRESHOLD,
 } from '../utils/cartCalculations';
 import { formatCartForWhatsApp, createWhatsAppLink } from '../utils/whatsapp';
+import { handleImageError } from '../utils/fallbackImage';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -169,6 +170,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   <img
                     src={item.product.image}
                     alt={item.product.name}
+                    loading="lazy"
+                    onError={handleImageError}
                     className="w-16 h-16 rounded-lg object-cover border border-stone-200 shrink-0 bg-stone-50"
                   />
                   <div className="flex-1 min-w-0">

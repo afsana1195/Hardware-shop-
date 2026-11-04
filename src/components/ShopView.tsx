@@ -11,6 +11,7 @@ import { Product, FilterState } from '../types';
 import { ProductCard } from './ProductCard';
 import { filterAndSortProducts } from '../utils/inventory';
 import { CATEGORIES_DATA } from '../data/initialProducts';
+import { handleImageError } from '../utils/fallbackImage';
 
 interface ShopViewProps {
   products: Product[];
@@ -25,18 +26,18 @@ interface ShopViewProps {
 // 14 Category badges displayed in the Shop Hero Banner (Directly from Build it DTM screenshot)
 const HERO_CATEGORIES = [
   { name: 'APPLIANCES', count: '8 Products', filterCat: 'Power Tools' },
-  { name: 'BATHROOMWARE', count: '36 Products', filterCat: 'Plumbing Supplies' },
-  { name: 'BUILDING MATERIALS', count: '19 Products', filterCat: 'Cement & Construction Materials' },
+  { name: 'BATHROOMWARE', count: '36 Products', filterCat: 'Plumbing' },
+  { name: 'BUILDING MATERIALS', count: '48 Products', filterCat: 'Building Materials' },
   { name: 'CEILING', count: '24 Products', filterCat: 'Building Hardware' },
   { name: 'DOORS', count: '34 Products', filterCat: 'Building Hardware' },
-  { name: 'FASTENERS', count: '16 Products', filterCat: 'Adhesives & Fasteners' },
+  { name: 'FASTENERS', count: '16 Products', filterCat: 'Adhesives & Waterproofing' },
   { name: 'GARDEN & OUTDOOR', count: '15 Products', filterCat: 'Safety Equipment' },
-  { name: 'PAINTING & DECORATING', count: '45 Products', filterCat: 'Paints & Accessories' },
-  { name: 'PLUMBING', count: '68 Products', filterCat: 'Plumbing Supplies' },
-  { name: 'ROOFING', count: '10 Products', filterCat: 'Cement & Construction Materials' },
-  { name: 'TILING', count: '22 Products', filterCat: 'Cement & Construction Materials' },
-  { name: 'TOOLS & HARDWARE', count: '27 Products', filterCat: 'Power Tools' },
-  { name: 'ELECTRICAL', count: '33 Products', filterCat: 'Electrical Supplies' },
+  { name: 'PAINTING & DECORATING', count: '92 Products', filterCat: 'Paints & Accessories' },
+  { name: 'PLUMBING', count: '88 Products', filterCat: 'Plumbing' },
+  { name: 'ROOFING', count: '10 Products', filterCat: 'Building Materials' },
+  { name: 'TILING', count: '22 Products', filterCat: 'Building Materials' },
+  { name: 'TOOLS & HARDWARE', count: '64 Products', filterCat: 'Power Tools' },
+  { name: 'ELECTRICAL', count: '75 Products', filterCat: 'Electrical Supplies' },
   { name: 'WINDOWS & AWNINGS', count: '12 Products', filterCat: 'Building Hardware' },
 ];
 
@@ -480,6 +481,8 @@ export const ShopView: React.FC<ShopViewProps> = ({
                       <img
                         src={p.image}
                         alt={p.name}
+                        loading="lazy"
+                        onError={handleImageError}
                         className="w-full h-full object-contain group-hover:scale-105 transition-transform"
                       />
                     </div>

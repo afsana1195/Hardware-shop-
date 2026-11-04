@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Product } from '../types';
 import { CATEGORIES_DATA } from '../data/initialProducts';
+import { handleImageError } from '../utils/fallbackImage';
 
 interface NavbarProps {
   currentTab: string;
@@ -225,6 +226,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <img
                         src={prod.image}
                         alt={prod.name}
+                        loading="lazy"
+                        onError={handleImageError}
                         className="w-9 h-9 rounded object-contain border border-stone-200 shrink-0 p-0.5"
                       />
                       <div className="flex-1 min-w-0">

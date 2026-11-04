@@ -14,6 +14,7 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
   openCart,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
 
   const startWhatsApp = (message: string) => {
     const encoded = encodeURIComponent(message);
@@ -22,36 +23,40 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <aside
+      aria-label="WhatsApp Support"
+      className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-30 flex flex-col items-end pointer-events-none"
+    >
       {/* Quick Menu Popover */}
       {isOpen && (
-        <div className="mb-3 w-80 bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200">
-          <div className="bg-emerald-600 text-white p-4 flex items-center justify-between">
+        <div className="pointer-events-auto mb-2.5 w-[calc(100vw-1.5rem)] max-w-xs sm:w-80 bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden animate-in fade-in slide-in-from-bottom-3 duration-200">
+          <div className="bg-emerald-600 text-white p-3.5 sm:p-4 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold shrink-0">
                 <MessageCircle className="w-5 h-5" />
               </div>
-              <div>
-                <div className="font-bold text-xs uppercase tracking-wider">
+              <div className="min-w-0">
+                <div className="font-black text-xs uppercase tracking-wider truncate">
                   {STORE_NAME}
                 </div>
-                <div className="text-[11px] text-emerald-100 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-                  <span>Online at Makali Yard</span>
+                <div className="text-[10px] sm:text-[11px] text-emerald-100 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse shrink-0" />
+                  <span className="truncate">Online at Makali Yard, Bangalore</span>
                 </div>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-emerald-100 hover:text-white p-1 rounded-full"
+              className="text-emerald-100 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+              aria-label="Close WhatsApp Menu"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="p-4 space-y-2 text-xs">
-            <p className="text-stone-600 text-[11px] mb-3">
-              Connect directly with our Bangalore sales &amp; dispatch team on WhatsApp (+91 6297201943):
+          <div className="p-3.5 sm:p-4 space-y-2 text-xs">
+            <p className="text-stone-600 text-[11px] mb-2 leading-relaxed">
+              Connect directly with our Bangalore sales &amp; dispatch team (+91 6297201943):
             </p>
 
             <button
@@ -60,10 +65,10 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
                   'Hello Jyoti Hardware, I would like to inquire about cement and site materials delivery to Bangalore.'
                 )
               }
-              className="w-full text-left p-2.5 rounded-xl border border-stone-200 hover:border-emerald-500 hover:bg-emerald-50/50 transition-colors flex items-center justify-between font-semibold text-stone-800"
+              className="w-full text-left p-2.5 rounded-xl border border-stone-200 hover:border-emerald-500 hover:bg-emerald-50/50 transition-colors flex items-center justify-between font-semibold text-stone-800 cursor-pointer"
             >
-              <span>💬 General Material Inquiry</span>
-              <Send className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="truncate pr-2">💬 General Material Inquiry</span>
+              <Send className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             </button>
 
             <button
@@ -71,10 +76,10 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
                 setIsOpen(false);
                 onOpenBulkQuote();
               }}
-              className="w-full text-left p-2.5 rounded-xl border border-stone-200 hover:border-emerald-500 hover:bg-emerald-50/50 transition-colors flex items-center justify-between font-semibold text-stone-800"
+              className="w-full text-left p-2.5 rounded-xl border border-stone-200 hover:border-emerald-500 hover:bg-emerald-50/50 transition-colors flex items-center justify-between font-semibold text-stone-800 cursor-pointer"
             >
-              <span>🏗️ Request Bulk Project Quote</span>
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span className="truncate pr-2">🏗️ Request Bulk Project Quote</span>
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
             </button>
 
             {cartCount > 0 && (
@@ -83,36 +88,52 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
                   setIsOpen(false);
                   openCart();
                 }}
-                className="w-full text-left p-2.5 rounded-xl bg-red-50 border border-red-200 hover:bg-red-100 transition-colors flex items-center justify-between font-bold text-red-700"
+                className="w-full text-left p-2.5 rounded-xl bg-red-50 border border-red-200 hover:bg-red-100 transition-colors flex items-center justify-between font-bold text-red-700 cursor-pointer"
               >
-                <span>🛒 View Cart &amp; Send Order ({cartCount})</span>
-                <ShoppingBag className="w-3.5 h-3.5 text-red-600" />
+                <span className="truncate pr-2">🛒 View Cart &amp; Order ({cartCount})</span>
+                <ShoppingBag className="w-3.5 h-3.5 text-red-600 shrink-0" />
               </button>
             )}
 
             <a
               href="tel:6297201943"
-              className="w-full text-left p-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 transition-colors flex items-center justify-between font-semibold text-stone-700"
+              className="w-full text-left p-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 transition-colors flex items-center justify-between font-semibold text-stone-700 block cursor-pointer"
             >
-              <span>📞 Direct Call (+91 6297201943)</span>
-              <Phone className="w-3.5 h-3.5 text-stone-500" />
+              <span className="truncate pr-2">📞 Direct Call (+91 6297201943)</span>
+              <Phone className="w-3.5 h-3.5 text-stone-500 shrink-0" />
             </a>
           </div>
         </div>
       )}
 
-      {/* Floating Action Trigger Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Open WhatsApp Support"
-        className="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 relative group"
-      >
-        <span className="absolute -top-1 -right-1 flex h-4 w-4">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white" />
-        </span>
-        <MessageCircle className="w-7 h-7" />
-      </button>
-    </div>
+      {/* Floating Action Trigger Button - Compact on mobile, non-intrusive */}
+      <div className="pointer-events-auto flex items-center gap-1.5">
+        {!isMinimized && (
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Open WhatsApp Support"
+            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-xl hover:shadow-2xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 relative group cursor-pointer focus:outline-none"
+          >
+            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 sm:h-4 sm:w-4">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 bg-emerald-500 border-2 border-white" />
+            </span>
+            <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+        )}
+
+        {/* Optional Minimized Tab */}
+        {isMinimized && (
+          <button
+            onClick={() => setIsMinimized(false)}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold py-1.5 px-3 rounded-full shadow-lg flex items-center gap-1.5 cursor-pointer active:scale-95"
+            title="Show WhatsApp Support"
+          >
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span>WhatsApp</span>
+          </button>
+        )}
+      </div>
+    </aside>
   );
 };
