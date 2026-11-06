@@ -1,29 +1,28 @@
 import { Product } from '../types';
 
 export const INITIAL_PRODUCTS: Product[] = [
-  // 1. Cement & Construction Materials
+  // 1. Reference Featured Product 1: UltraTech Cement
   {
     id: 'prod-cement-ultratech',
-    name: 'UltraTech Super Cement (53 Grade PPC)',
-    category: 'Cement & Construction Materials',
+    name: 'UltraTech Cement (50 Kg)',
+    category: 'Cement & Construction',
     brand: 'UltraTech',
-    price: 435,
-    originalPrice: 475,
+    price: 420,
+    originalPrice: 440,
     rating: 4.9,
     reviewsCount: 342,
     stock: 250,
     unit: '50 kg Bag',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/reference/prod_ultratech.png',
     images: [
-      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f7?auto=format&fit=crop&w=800&q=80',
+      '/assets/reference/prod_ultratech.png',
+      '/assets/reference/cat_cement.png',
     ],
     description:
-      'UltraTech Super is an engineered Portland Pozzolana Cement (PPC) manufactured with high quality clinker and micro-fine pozzolanic materials. Offers exceptional compressive strength, low heat of hydration, and superior resistance to sulphate and chloride attacks, making it the top choice for residential slabs, columns, and foundations in Bangalore.',
+      'UltraTech Cement is the engineer\'s choice for superior compressive strength, micro-fine particle packing, and low heat of hydration. Ideal for residential slabs, columns, and foundations in Bangalore.',
     specifications: {
       'Grade': 'PPC 53 Grade Equivalent',
-      'Packaging': 'Tamper-proof 50 kg Polypropylene Bag',
+      'Packaging': 'Tamper-proof 50 kg Bag',
       'Initial Setting Time': '45 minutes minimum',
       'Final Setting Time': '360 minutes maximum',
       'Standard Compliance': 'IS 1489 (Part 1): 2015',
@@ -37,7 +36,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Resistant to alkali-silica reaction and sulphate attack',
       'Ideal for heavy RCC structural work and multi-storey builds',
     ],
-    badge: 'Best Seller',
+    badge: '4% OFF',
     isFeatured: true,
     isTrending: true,
     bulkDiscountTiers: [
@@ -46,10 +45,135 @@ export const INITIAL_PRODUCTS: Product[] = [
       { minQty: 100, discountPercent: 12 },
     ],
   },
+
+  // 2. Reference Featured Product 2: Bosch Impact Drill
+  {
+    id: 'prod-bosch-drill-650w',
+    name: 'Bosch Impact Drill 650W',
+    category: 'Power Tools',
+    brand: 'Bosch',
+    price: 3499,
+    originalPrice: 3999,
+    rating: 4.8,
+    reviewsCount: 289,
+    stock: 45,
+    unit: 'Unit',
+    image: '/assets/reference/prod_bosch_drill.png',
+    images: [
+      '/assets/reference/prod_bosch_drill.png',
+      '/assets/reference/cat_powertools.png',
+    ],
+    description:
+      'Robust 650W impact drill from Bosch engineered for tough masonry, metal, and woodworking applications. Features dual-mode rotation and forward/reverse electronic speed control.',
+    specifications: {
+      'Power Input': '650 Watts',
+      'Drilling Diameter in Masonry': '13 mm',
+      'Drilling Diameter in Steel': '10 mm',
+      'No-load Speed': '0 – 3,150 RPM',
+      'Chuck Capacity': '1.5 – 13 mm keyed chuck',
+      'Warranty': '1 Year Bosch India Warranty',
+    },
+    features: [
+      'Powerful 650W motor for drilling in concrete and brick',
+      'Compact ergonomic design for fatigue-free overhead work',
+      'Forward/reverse control for screwdriving and bit removal',
+    ],
+    badge: '12% OFF',
+    isFeatured: true,
+    isTrending: true,
+    bulkDiscountTiers: [
+      { minQty: 5, discountPercent: 5 },
+      { minQty: 10, discountPercent: 10 },
+    ],
+  },
+
+  // 3. Reference Featured Product 3: Asian Paints Apcolite 10L
+  {
+    id: 'prod-paints-apcolite-10l',
+    name: 'Asian Paints Apcolite 10L',
+    category: 'Paints',
+    brand: 'Asian Paints',
+    price: 2450,
+    originalPrice: 2750,
+    rating: 4.9,
+    reviewsCount: 195,
+    stock: 75,
+    unit: '10L Bucket',
+    image: '/assets/reference/prod_asian_paints.png',
+    images: [
+      '/assets/reference/prod_asian_paints.png',
+      '/assets/reference/cat_paints.png',
+    ],
+    description:
+      'Asian Paints Apcolite Premium Satin Emulsion provides rich matte and soft sheen finish with long-lasting stain resistance and fungal protection for residential and commercial interiors.',
+    specifications: {
+      'Type': 'Premium Acrylic Emulsion',
+      'Pack Size': '10 Litres',
+      'Coverage': '140 – 160 sq.ft / litre for 2 coats',
+      'Finish': 'Smooth Rich Sheen',
+      'Drying Time': '30 minutes surface dry',
+      'Manufacturer': 'Asian Paints Ltd.',
+    },
+    features: [
+      'Advanced stain guard technology for washable walls',
+      'Anti-fungal protection against damp monsoon conditions',
+      'Rich vibrant color retention without fading',
+    ],
+    badge: '11% OFF',
+    isFeatured: true,
+    isTrending: true,
+    bulkDiscountTiers: [
+      { minQty: 5, discountPercent: 6 },
+      { minQty: 10, discountPercent: 12 },
+    ],
+  },
+
+  // 4. Reference Featured Product 4: Astral CPVC Pipe
+  {
+    id: 'prod-plumbing-astral-cpvc-1in',
+    name: 'Astral CPVC Pipe 1" (3m)',
+    category: 'Plumbing',
+    brand: 'Astral',
+    price: 310,
+    originalPrice: 340,
+    rating: 4.8,
+    reviewsCount: 142,
+    stock: 180,
+    unit: '3m Length',
+    image: '/assets/reference/prod_cpvc_pipe.png',
+    images: [
+      '/assets/reference/prod_cpvc_pipe.png',
+      '/assets/reference/cat_plumbing.png',
+    ],
+    description:
+      'Astral CPVC Pro hot and cold potable water plumbing pipe. Engineered to withstand high pressure up to 28 kg/cm² and temperatures up to 93°C with 100% bacterial and scale resistance.',
+    specifications: {
+      'Size': '1 Inch (25 mm nominal)',
+      'Standard': 'SDR 11 Class 1 (ASTM D2846)',
+      'Length': '3 meters (10 feet)',
+      'Working Pressure': '28.1 kg/cm² at 23°C',
+      'Temperature Rating': 'Up to 93°C (200°F)',
+      'Manufacturer': 'Astral Limited',
+    },
+    features: [
+      'Lead-free NSF-certified for safe drinking water',
+      'Zero scale buildup and corrosion free lifetime',
+      'Fast solvent cement fusion welding jointing',
+    ],
+    badge: '9% OFF',
+    isFeatured: true,
+    isTrending: true,
+    bulkDiscountTiers: [
+      { minQty: 10, discountPercent: 5 },
+      { minQty: 30, discountPercent: 10 },
+    ],
+  },
+
+  // 5. Cement & Construction Materials
   {
     id: 'prod-cement-birla-a1',
     name: 'Birla A1 StrongCrete High Performance Cement',
-    category: 'Cement & Construction Materials',
+    category: 'Cement & Construction',
     brand: 'Birla A1',
     price: 425,
     originalPrice: 460,
@@ -57,10 +181,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 184,
     stock: 180,
     unit: '50 kg Bag',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-cement-birla-a1.jpg',
     images: [
-      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-cement-birla-a1.jpg',
+      '/assets/reference/cat_cement.png',
     ],
     description:
       'Specially designed for heavy foundation and concrete load bearing structures. Birla A1 StrongCrete provides rapid setting, optimum workability, and high density matrix that seals pores against moisture seepage.',
@@ -86,7 +210,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-tmt-tata-tiscon-12',
     name: 'Tata Tiscon 550D Super Ductile TMT Rebar Steel (12mm)',
-    category: 'Cement & Construction Materials',
+    category: 'Cement & Construction',
     brand: 'Tata Tiscon',
     price: 785,
     originalPrice: 840,
@@ -94,10 +218,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 215,
     stock: 120,
     unit: '12m Standard Bar',
-    image: 'https://images.unsplash.com/photo-1535732820275-9ffd998cac22?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-tmt-tata-tiscon-12.jpg',
     images: [
-      'https://images.unsplash.com/photo-1535732820275-9ffd998cac22?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-tmt-tata-tiscon-12.jpg',
+      '/assets/reference/cat_cement.png',
     ],
     description:
       'Tata Tiscon 550D is the undisputed standard in earthquake-resistant construction rebar. Superior ductility and high tensile strength absorb shockwaves during tremors. Clean ribs with precise rib pattern deliver maximum concrete bond strength.',
@@ -135,10 +259,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 89,
     stock: 24,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-grinder-bd-2200w.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-grinder-bd-2200w.jpg',
+      '/assets/reference/cat_powertools.png',
     ],
     description:
       'Heavy-duty 2200W Black & Decker Angle Grinder engineered for continuous site masonry cutting, weld bead grinding, and metal fabrication. Features 3-position auxiliary handle and spindle lock.',
@@ -169,9 +293,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 114,
     stock: 35,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-grinder-bd-710w.jpg',
     images: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-grinder-bd-710w.jpg',
+      '/assets/reference/cat_powertools.png',
     ],
     description:
       'Compact and powerful 710W angle grinder designed for comfortable one-handed cutting of tile, stone, and rebar. Slim barrel diameter for minimum user fatigue.',
@@ -201,9 +326,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 172,
     stock: 18,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-grinder-bosch-gws2000.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-grinder-bosch-gws2000.jpg',
+      '/assets/reference/cat_powertools.png',
     ],
     description:
       'Professional 230mm (9 inch) angle grinder from Bosch India. Built for the toughest metal works, brick slotting, and structural fabrication.',
@@ -232,9 +358,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 220,
     stock: 40,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-grinder-bosch-gws700.jpg',
     images: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-grinder-bosch-gws700.jpg',
+      '/assets/reference/cat_powertools.png',
     ],
     description:
       'High-performance 710W Bosch angle grinder with slim body grip and advanced airflow system.',
@@ -261,8 +388,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 145,
     stock: 15,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-grinder-bosch-gws2200.jpg',
+    images: [
+      '/assets/products/prod-grinder-bosch-gws2200.jpg',
+      '/assets/reference/cat_powertools.png',
+    ],
     description: 'Heavy duty 2200W angle grinder with restart protection and vibration dampening.',
     specifications: { 'Power': '2200W', 'Disc': '230mm', 'Speed': '6,500 RPM' },
     features: ['Vibration control', 'Restart protection', 'Heavy duty motor'],
@@ -279,8 +409,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 98,
     stock: 22,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-grinder-stanley-stgs9115d.jpg',
+    images: [
+      '/assets/products/prod-grinder-stanley-stgs9115d.jpg',
+      '/assets/reference/cat_powertools.png',
+    ],
     description: 'Powerful 900W motor designed for heavy trade applications with spiral bevel gears.',
     specifications: { 'Power': '900W', 'Disc': '115mm', 'Speed': '11,000 RPM' },
     features: ['High durability spiral bevel gears', 'Ergonomic side handle'],
@@ -297,8 +430,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 65,
     stock: 12,
     unit: 'Combo Kit Box',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-grinder-stanley-combo.jpg',
+    images: [
+      '/assets/products/prod-grinder-stanley-combo.jpg',
+      '/assets/reference/cat_powertools.png',
+    ],
     description: 'Complete workshop combo kit featuring 115mm detail grinder and 230mm heavy site grinder in Stanley steel carry case.',
     specifications: { 'Kit': '115mm Grinder + 230mm Grinder', 'Case': 'Heavy Gauge Metal Box' },
     features: ['Twin grinder contractor kit', 'Heavy gauge carry case with metal latches'],
@@ -308,7 +444,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-awning-1200-bronze',
     name: 'AWNING 1200 BRONZE',
-    category: 'Building Hardware',
+    category: 'Hardware',
     brand: 'Duram',
     price: 549.90,
     originalPrice: 689.90,
@@ -316,8 +452,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 42,
     stock: 0,
     unit: 'Set',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-awning-1200-bronze.jpg',
+    images: [
+      '/assets/products/prod-awning-1200-bronze.jpg',
+      '/assets/reference/cat_hardware.png',
+    ],
     description: 'Weatherproof polycarbonate bronze tinted outdoor door and window awning canopy. Engineered to withstand heavy Bangalore monsoon rains.',
     specifications: { 'Size': '1200mm Width x 800mm Projection', 'Material': 'UV Tinted Polycarbonate', 'Brackets': 'Engineered ABS' },
     features: ['High UV impact resistant canopy', 'Self-cleaning curved drainage profile'],
@@ -327,7 +466,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-awning-1500-bronze',
     name: 'AWNING 1500 BRONZE',
-    category: 'Building Hardware',
+    category: 'Hardware',
     brand: 'Duram',
     price: 850.00,
     originalPrice: 999.00,
@@ -335,8 +474,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 38,
     stock: 14,
     unit: 'Set',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-awning-1500-bronze.jpg',
+    images: [
+      '/assets/products/prod-awning-1500-bronze.jpg',
+      '/assets/reference/cat_hardware.png',
+    ],
     description: 'Wide 1500mm bronze architectural awning for villa main entrance and shopfront sun protection.',
     specifications: { 'Size': '1500mm x 1000mm', 'Material': 'Solid Polycarbonate Sheet' },
     features: ['Monsoon rain runoff gutter', 'Rust-proof aluminium front trim'],
@@ -345,7 +487,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-banister-brush-coco',
     name: 'BANISTER BRUSH COCO BA46',
-    category: 'Paints & Accessories',
+    category: 'Paints',
     brand: 'Harris',
     price: 149.90,
     originalPrice: 189.00,
@@ -353,8 +495,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 88,
     stock: 50,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-banister-brush-coco.jpg',
+    images: [
+      '/assets/products/prod-banister-brush-coco.jpg',
+      '/assets/reference/cat_paints.png',
+    ],
     description: 'Natural dense coco fibre bristles with solid polished hardwood handle for masonry dusting, plaster cleanup, and workshop maintenance.',
     specifications: { 'Bristle': 'Natural Coconut Coir', 'Handle': 'Smooth Polished Hardwood' },
     features: ['Natural soft yet durable bristles', 'Cleans fine sawdust and plaster crumbs'],
@@ -362,7 +507,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-basin-mixer-eleganz',
     name: 'BASIN MIXER ELEGANZ BM21601',
-    category: 'Plumbing Supplies',
+    category: 'Plumbing',
     brand: 'Jaquar',
     price: 1890.00,
     originalPrice: 2350.00,
@@ -370,8 +515,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 110,
     stock: 20,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-basin-mixer-eleganz.jpg',
+    images: [
+      '/assets/products/prod-basin-mixer-eleganz.jpg',
+      '/assets/reference/cat_plumbing.png',
+    ],
     description: 'Premium chrome finished single-lever basin mixer tap with Neoperl aerator for smooth, splash-free water flow.',
     specifications: { 'Material': 'High-purity Grade A Solid Brass', 'Finish': 'Multi-layer Mirror Chrome', 'Cartridge': 'Sedal Ceramic Disc' },
     features: ['10-year Jaquar drip-free warranty', 'Neoperl foam-flow water saving aerator'],
@@ -380,7 +528,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-basin-mixer-quaddro',
     name: 'BASIN MIXER HIGH RISE QUADDRO BM22915',
-    category: 'Plumbing Supplies',
+    category: 'Plumbing',
     brand: 'Jaquar',
     price: 2450.00,
     originalPrice: 2990.00,
@@ -388,8 +536,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 79,
     stock: 16,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
-    images: ['https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'],
+    image: '/assets/products/prod-basin-mixer-quaddro.jpg',
+    images: [
+      '/assets/products/prod-basin-mixer-quaddro.jpg',
+      '/assets/reference/cat_plumbing.png',
+    ],
     description: 'Contemporary tall square high-rise single lever mixer specially crafted for tabletop designer wash basins.',
     specifications: { 'Spout Height': '280 mm', 'Finish': 'Chrome Plated Brass', 'Operation': 'Single Lever Joystick' },
     features: ['High rise pillar body for counter basins', 'Silky smooth 35mm ceramic cartridge'],
@@ -408,11 +559,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 520,
     stock: 28,
     unit: 'Full Set Kit',
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-tool-bosch-drill-gsb600.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-tool-bosch-drill-gsb600.jpg',
+      '/assets/reference/cat_powertools.png',
     ],
     description:
       'The Bosch GSB 600 is engineered for heavy masonry, steel drilling, and woodworking. Featuring an upgraded 600W copper-wound motor and robust metal chuck, it effortlessly tackles concrete, brickwork, and hard timber. Comes with a heavy-duty carrying case containing 100 drill bits, screws, and hand tools.',
@@ -446,10 +596,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 310,
     stock: 22,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-tool-bosch-angle-grinder.jpg',
     images: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-tool-bosch-angle-grinder.jpg',
+      '/assets/reference/cat_powertools.png',
     ],
     description:
       'High-performance 670W angle grinder with specially designed air inlets for optimum cooling and extended motor life. Anti-rotation protective guard stands firm even if the disc breaks, offering maximum operator safety.',
@@ -480,10 +630,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 160,
     stock: 14,
     unit: 'Set with 2x 2Ah Batteries',
-    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-tool-dewalt-cordless-drill.jpg',
     images: [
-      'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-tool-dewalt-cordless-drill.jpg',
+      '/assets/reference/cat_powertools.png',
     ],
     description:
       'High-torque brushless motor delivers up to 57% more runtime over brushed motors. Dual-speed transmission (0-500 & 0-1,750 RPM) matched with 15 clutch settings for versatile framing, electrical, and MEP site tasks.',
@@ -508,7 +658,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-paint-asian-apex-ultima',
     name: 'Asian Paints Apex Ultima Advanced Weatherproof Emulsion (20L)',
-    category: 'Paints & Accessories',
+    category: 'Paints',
     brand: 'Asian Paints',
     price: 5850,
     originalPrice: 6600,
@@ -516,10 +666,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 290,
     stock: 35,
     unit: '20 Litre Bucket',
-    image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-paint-asian-apex-ultima.jpg',
     images: [
-      'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-paint-asian-apex-ultima.jpg',
+      '/assets/reference/cat_paints.png',
     ],
     description:
       'Apex Ultima with silicone additive technology is the gold standard exterior wall protection in India. Forms a tough, flexible film that shrugs off harsh tropical sunlight, torrential monsoon rains, and algae growth. Backed by Asian Paints 7-year performance warranty.',
@@ -547,7 +697,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-paint-royale-luxury',
     name: 'Asian Paints Royale Luxury Interior Acrylic Emulsion (20L)',
-    category: 'Paints & Accessories',
+    category: 'Paints',
     brand: 'Asian Paints',
     price: 6490,
     originalPrice: 7200,
@@ -555,10 +705,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 245,
     stock: 25,
     unit: '20 Litre Bucket',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-paint-royale-luxury.jpg',
     images: [
-      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-paint-royale-luxury.jpg',
+      '/assets/reference/cat_paints.png',
     ],
     description:
       'Royale Luxury Emulsion gives interiors a soft, silky sheen with Teflon surface protector. Unrivalled stain resistance enables effortless wiping of tea, coffee, crayon, and grease marks with a damp cloth.',
@@ -580,7 +730,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-roller-paint-kit',
     name: 'Berger Express Painter Pro 9-Inch Roller & Tray Set',
-    category: 'Paints & Accessories',
+    category: 'Paints',
     brand: 'Berger',
     price: 480,
     originalPrice: 650,
@@ -588,9 +738,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 140,
     stock: 65,
     unit: 'Complete Set',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-roller-paint-kit.jpg',
     images: [
-      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-roller-paint-kit.jpg',
+      '/assets/reference/cat_paints.png',
     ],
     description:
       'High density woven microfiber roller sleeve with non-slip paint tray and steel frame. Leaves zero lint and achieves an ultra-uniform finish with emulsion paints.',
@@ -609,7 +760,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-elec-havells-wire-25',
     name: 'Havells Lifeline Plus Single Core FR PVC Insulated Cable (90m, 2.5 sq mm)',
-    category: 'Electrical Supplies',
+    category: 'Electrical',
     brand: 'Havells',
     price: 2950,
     originalPrice: 3550,
@@ -617,10 +768,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 410,
     stock: 60,
     unit: '90m Coil',
-    image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-elec-havells-wire-25.jpg',
     images: [
-      'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-elec-havells-wire-25.jpg',
+      '/assets/reference/cat_electrical.png',
     ],
     description:
       'Engineered with 100% pure electrolytic bare copper conductors (99.97% purity). Flame Retardant (FR) PVC compound insulates against electrical fires, prevents power leakage, and withstands up to 85°C operating heat.',
@@ -649,7 +800,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-elec-anchor-roma-switch-pack',
     name: 'Anchor Roma Modular 16A Switch & Socket Combo Box (Pack of 10 Sets)',
-    category: 'Electrical Supplies',
+    category: 'Electrical',
     brand: 'Anchor Roma',
     price: 1850,
     originalPrice: 2400,
@@ -657,9 +808,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 190,
     stock: 45,
     unit: 'Box of 10 Sets',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-elec-anchor-roma-switch-pack.jpg',
     images: [
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-elec-anchor-roma-switch-pack.jpg',
+      '/assets/reference/cat_electrical.png',
     ],
     description:
       'Anchor by Panasonic Roma Classic high-gloss white modular switches with silver-inlay contact rivets for spark-free performance and 100,000+ clicks life.',
@@ -681,7 +833,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-elec-mcb-schneider',
     name: 'Schneider Electric Acti9 32A Double Pole MCB (C-Curve 10kA)',
-    category: 'Electrical Supplies',
+    category: 'Electrical',
     brand: 'Schneider',
     price: 790,
     originalPrice: 980,
@@ -689,9 +841,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 88,
     stock: 35,
     unit: 'Unit',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-elec-mcb-schneider.jpg',
     images: [
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-elec-mcb-schneider.jpg',
+      '/assets/reference/cat_electrical.png',
     ],
     description:
       'Bi-connect terminals with VisiTrip indicator instantly reveals faulty circuits. Provides premium overload and short circuit isolation for main distribution boards.',
@@ -711,7 +864,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-plumb-supreme-cpvc-pipe',
     name: 'Supreme Lifeline CPVC High Pressure Pipe (1-Inch SDR 11, 3m Length)',
-    category: 'Plumbing Supplies',
+    category: 'Plumbing',
     brand: 'Supreme',
     price: 495,
     originalPrice: 590,
@@ -719,10 +872,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 165,
     stock: 90,
     unit: '3m Length',
-    image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-plumb-supreme-cpvc-pipe.jpg',
     images: [
-      'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-plumb-supreme-cpvc-pipe.jpg',
+      '/assets/reference/cat_plumbing.png',
     ],
     description:
       'Supreme Lifeline CPVC pipes are made from Japanese Sekisui compounds, engineered to carry potable water up to 93°C without leaching harmful chemicals or scaling. 100% corrosion and biofilm resistant.',
@@ -748,7 +901,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-plumb-jaquar-bibcock',
     name: 'Jaquar Florentine Chrome Plated Brass Bib Cock Tap with Wall Flange',
-    category: 'Plumbing Supplies',
+    category: 'Plumbing',
     brand: 'Jaquar',
     price: 1390,
     originalPrice: 1750,
@@ -756,9 +909,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 210,
     stock: 30,
     unit: 'Piece',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-plumb-jaquar-bibcock.jpg',
     images: [
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-plumb-jaquar-bibcock.jpg',
+      '/assets/reference/cat_plumbing.png',
     ],
     description:
       'Forged from virgin brass ingot with flawless 0.3 micron chromium and 10 micron nickel plating. Tested for 450,000 cycles with smooth ceramic disc quarter-turn cartridge.',
@@ -780,7 +934,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-plumb-astral-drainage',
     name: 'Astral DrainMaster PVC SWR Drainage Pipe (110mm, 3m Ring-Fit)',
-    category: 'Plumbing Supplies',
+    category: 'Plumbing',
     brand: 'Astral',
     price: 860,
     originalPrice: 1020,
@@ -788,9 +942,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 78,
     stock: 45,
     unit: '3m Pipe',
-    image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-plumb-astral-drainage.jpg',
     images: [
-      'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-plumb-astral-drainage.jpg',
+      '/assets/reference/cat_plumbing.png',
     ],
     description:
       'UV-stabilised soil, waste and rainwater drainage pipe. Rubber ring gasket joint enables rapid installation and prevents wastewater leaks or foul odours.',
@@ -810,7 +965,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-hw-godrej-mortise-lock',
     name: 'Godrej Stainless Steel Ultra Mortise Door Lock with Euro Profile Brass Cylinder',
-    category: 'Building Hardware',
+    category: 'Hardware',
     brand: 'Godrej',
     price: 2490,
     originalPrice: 3250,
@@ -818,10 +973,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 230,
     stock: 18,
     unit: 'Complete Lockset',
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-hw-godrej-mortise-lock.jpg',
     images: [
-      'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-hw-godrej-mortise-lock.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'Forged with grade 304 stainless steel handles and a high-security pin-tumbler solid brass cylinder. Resistant to hacksaw attacks, pick guns, and force drilling. Supplied with 3 dimple keys.',
@@ -844,7 +999,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-hw-ss-hinges-4inch',
     name: 'Ozone Heavy Duty SS 304 Bearing Butt Hinges (4" x 3" x 3mm, Pack of 6)',
-    category: 'Building Hardware',
+    category: 'Hardware',
     brand: 'Ozone',
     price: 890,
     originalPrice: 1150,
@@ -852,9 +1007,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 94,
     stock: 50,
     unit: 'Pack of 6 (3 Pairs)',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-hw-ss-hinges-4inch.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-hw-ss-hinges-4inch.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'Solid stainless steel 304 architectural hinges with four precision ball bearings per hinge for silent, frictionless swinging of heavy wooden entrance doors up to 80 kg.',
@@ -872,7 +1028,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-hw-stanley-claw-hammer',
     name: 'Stanley Fiberglass 16-oz Curved Claw Hammer (Anti-Vibration)',
-    category: 'Building Hardware',
+    category: 'Hardware',
     brand: 'Stanley',
     price: 720,
     originalPrice: 950,
@@ -880,9 +1036,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 175,
     stock: 24,
     unit: 'Piece',
-    image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-hw-stanley-claw-hammer.jpg',
     images: [
-      'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-hw-stanley-claw-hammer.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'Heat-treated forged carbon steel head with shock-absorbing ribbed fiberglass handle. Balanced weight distribution minimizes wrist fatigue on structural framing and carpentry jobs.',
@@ -901,7 +1058,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-safety-karam-helmet',
     name: 'Karam Shelmet Industrial Safety Helmet with Ratchet Adjustment & Chin Strap',
-    category: 'Safety Equipment',
+    category: 'Hardware',
     brand: 'Karam',
     price: 360,
     originalPrice: 480,
@@ -909,9 +1066,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 310,
     stock: 80,
     unit: 'Piece',
-    image: 'https://images.unsplash.com/photo-1578873375969-d6023ea9be59?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-safety-karam-helmet.jpg',
     images: [
-      'https://images.unsplash.com/photo-1578873375969-d6023ea9be59?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-safety-karam-helmet.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'Engineered from specially formulated high impact UV-resistant polymer. Features 6-point textile suspension cradle with quick-dial ratchet headband and sweatband for day-long site comfort.',
@@ -937,7 +1095,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-safety-3m-n95-box',
     name: '3M 8210 N95 Particulate Construction Dust Respirator Mask (Box of 20)',
-    category: 'Safety Equipment',
+    category: 'Hardware',
     brand: '3M',
     price: 1450,
     originalPrice: 1800,
@@ -945,9 +1103,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 180,
     stock: 40,
     unit: 'Box of 20 Masks',
-    image: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-safety-3m-n95-box.jpg',
     images: [
-      'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-safety-3m-n95-box.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'NIOSH certified N95 particulate respirator designed for silica dust, cement powder, wood sanding, and masonry grinding. 3M Advanced Electret Media filters out >= 95% of airborne particles.',
@@ -968,7 +1127,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-safety-steel-toe-boots',
     name: 'Tiger Steel-Toe Leather Industrial Site Safety Boots (ISI Marked)',
-    category: 'Safety Equipment',
+    category: 'Hardware',
     brand: 'Tiger Safety',
     price: 1290,
     originalPrice: 1690,
@@ -976,9 +1135,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 145,
     stock: 25,
     unit: 'Pair (Sizes 6-10)',
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-safety-steel-toe-boots.jpg',
     images: [
-      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-safety-steel-toe-boots.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'Genuine full grain buffalo leather with 200 Joules steel toe cap. Direct injected double density PU sole provides anti-skid grip and puncture resistance against exposed construction nails.',
@@ -997,7 +1157,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-adh-fevicol-sh-10kg',
     name: 'Fevicol SH Ultimate Synthetic Resin Wood Adhesive (10 kg Bucket)',
-    category: 'Adhesives & Fasteners',
+    category: 'Hardware',
     brand: 'Pidilite Fevicol',
     price: 2450,
     originalPrice: 2800,
@@ -1005,9 +1165,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 380,
     stock: 35,
     unit: '10 kg Bucket',
-    image: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-adh-fevicol-sh-10kg.jpg',
     images: [
-      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-adh-fevicol-sh-10kg.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'The undisputed champion in woodworking adhesives. Fevicol SH synthetic resin formula develops an unbreakable bond between wood, ply, laminates, veneer, and MDF. Dries with a clear bond line.',
@@ -1034,7 +1195,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-adh-dr-fixit-waterproofing',
     name: 'Dr. Fixit Fastflex 2K Polymer Waterproofing Coating (12 kg Kit)',
-    category: 'Adhesives & Fasteners',
+    category: 'Cement & Construction',
     brand: 'Dr. Fixit',
     price: 2890,
     originalPrice: 3450,
@@ -1042,9 +1203,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 195,
     stock: 28,
     unit: '12 kg Dual Pack Kit',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-adh-dr-fixit-waterproofing.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-adh-dr-fixit-waterproofing.jpg',
+      '/assets/reference/cat_cement.png',
     ],
     description:
       'Two-component cementitious acrylic polymer modified flexible waterproofing coating for sunken slabs, bathrooms, balconies, water tanks, and building podiums. Accommodates thermal movement without rupturing.',
@@ -1065,7 +1227,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-adh-araldite-epoxy',
     name: 'Araldite Standard Epoxy High Strength Adhesive (1.8 kg Industrial Pack)',
-    category: 'Adhesives & Fasteners',
+    category: 'Hardware',
     brand: 'Araldite',
     price: 1650,
     originalPrice: 1950,
@@ -1073,9 +1235,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     reviewsCount: 140,
     stock: 20,
     unit: '1.8 kg (Resin + Hardener)',
-    image: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/products/prod-adh-araldite-epoxy.jpg',
     images: [
-      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
+      '/assets/products/prod-adh-araldite-epoxy.jpg',
+      '/assets/reference/cat_hardware.png',
     ],
     description:
       'Heavy-duty industrial two-part epoxy paste adhesive. Bonds marble, granite slabs, structural steel, ceramic tiles, and glass with monumental shear and peel resistance.',
@@ -1093,60 +1256,46 @@ export const INITIAL_PRODUCTS: Product[] = [
 
 export const CATEGORIES_DATA = [
   {
-    name: 'Building Materials',
+    name: 'Cement & Construction',
     icon: 'Building2',
     itemCount: 48,
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80',
-    description: 'UltraTech & Birla PPC cement, Tata Tiscon steel rebars, river sand, M-sand, aggregate gravel & red bricks.',
+    image: '/assets/reference/cat_cement.png',
+    description: 'UltraTech & Birla PPC cement, Tata Tiscon steel rebars, M-sand, aggregate gravel & Dr. Fixit waterproofing.',
   },
   {
     name: 'Power Tools',
     icon: 'Zap',
     itemCount: 64,
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80',
-    description: 'Impact drills, rotary hammers, marble cutters, angle grinders, cordless drivers from Bosch & Dewalt.',
+    image: '/assets/reference/cat_powertools.png',
+    description: 'Impact drills, rotary hammers, marble cutters, angle grinders & cordless drivers from Bosch & Stanley.',
   },
   {
-    name: 'Paints & Accessories',
+    name: 'Paints',
     icon: 'Paintbrush',
     itemCount: 92,
-    image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=600&q=80',
-    description: 'Exterior weatherproof emulsions, interior Royale silk paints, primers, rollers & putty.',
+    image: '/assets/reference/cat_paints.png',
+    description: 'Exterior weatherproof emulsions, interior Apcolite Royale paints, primers, rollers & waterproofing.',
   },
   {
-    name: 'Electrical Supplies',
+    name: 'Electrical',
     icon: 'Cable',
     itemCount: 75,
-    image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=600&q=80',
-    description: 'Havells FR copper cables, modular switches, MCBs, distribution boards & conduits.',
+    image: '/assets/reference/cat_electrical.png',
+    description: 'Havells FR copper cables, modular switches, MCBs, distribution boards & PVC conduits.',
   },
   {
     name: 'Plumbing',
     icon: 'Pipette',
     itemCount: 88,
-    image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80',
-    description: 'Supreme CPVC/UPVC pipes, SWR drainage lines, brass valves, Jaquar faucets & water tanks.',
+    image: '/assets/reference/cat_plumbing.png',
+    description: 'Astral CPVC/UPVC pipes, SWR drainage lines, brass valves, bathroom mixers & water tanks.',
   },
   {
-    name: 'Building Hardware',
+    name: 'Hardware',
     icon: 'Hammer',
     itemCount: 110,
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80',
-    description: 'Godrej mortise locks, SS 304 hinges, tower bolts, door handles, screws & scaffolding couplers.',
-  },
-  {
-    name: 'Safety Equipment',
-    icon: 'ShieldCheck',
-    itemCount: 42,
-    image: 'https://images.unsplash.com/photo-1578873375969-d6023ea9be59?auto=format&fit=crop&w=600&q=80',
-    description: 'ISI marked safety helmets, 3M N95 silica respirators, steel-toe site boots & harness belts.',
-  },
-  {
-    name: 'Adhesives & Waterproofing',
-    icon: 'Layers',
-    itemCount: 56,
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
-    description: 'Fevicol SH resin, Dr. Fixit waterproofing polymer, Araldite epoxy & anchor bolts.',
+    image: '/assets/reference/cat_hardware.png',
+    description: 'Godrej mortise door locks, SS 304 hinges, claw hammers, awnings, Fevicol & safety site gear.',
   },
 ];
 

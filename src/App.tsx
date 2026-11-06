@@ -4,7 +4,16 @@
  */
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { Product, CartItem, Order, BulkQuoteRequest, DeliveryMethod, PaymentMethod, CustomerDetails } from './types';
+import {
+  Product,
+  CartItem,
+  Order,
+  BulkQuoteRequest,
+  DeliveryMethod,
+  PaymentMethod,
+  CustomerDetails,
+  UserProfile,
+} from './types';
 import { INITIAL_PRODUCTS, INITIAL_ORDERS } from './data/initialProducts';
 import { deductInventory } from './utils/inventory';
 import { Navbar } from './components/Navbar';
@@ -23,12 +32,16 @@ import { ContactView } from './components/ContactView';
 import { FAQView } from './components/FAQView';
 import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
+import { LoginModal } from './components/LoginModal';
+import { WishlistModal } from './components/WishlistModal';
 
 const STORAGE_KEYS = {
-  PRODUCTS: 'jhc_products_v3',
-  CART: 'jhc_cart_v3',
-  ORDERS: 'jhc_orders_v3',
-  QUOTES: 'jhc_quotes_v3',
+  PRODUCTS: 'jhc_products_v4',
+  CART: 'jhc_cart_v4',
+  ORDERS: 'jhc_orders_v4',
+  QUOTES: 'jhc_quotes_v4',
+  WISHLIST: 'jhc_wishlist_v4',
+  USER: 'jhc_user_v4',
 };
 
 export default function App() {
@@ -112,6 +125,45 @@ export default function App() {
       localStorage.setItem(STORAGE_KEYS.QUOTES, JSON.stringify(quotes));
     } catch (e) {}
   }, [quotes]);
+
+  // User Profile & Wishlist State
+  const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEYS.USER);
+      if (saved) return JSON.parse(saved);
+    } catch (e) {}
+    return null;
+  });
+
+  const [wishlistProductIds, setWishlistProductIds] = useState<Set<string>>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEYS.WISHLIST);
+      if (saved) return new Set(JSON.parse(saved));
+    } catch (e) {}
+    return new Set(['jhc-02']);
+  });
+
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (currentUser) {
+        localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(currentUser));
+      } else {
+        localStorage.removeItem(STORAGE_KEYS.USER);
+      }
+    } catch (e) {}
+  }, [currentUser]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        STORAGE_KEYS.WISHLIST,
+        JSON.stringify(Array.from(wishlistProductIds))
+      );
+    } catch (e) {}
+  }, [wishlistProductIds]);
 
   // 2. Navigation & UI State
   const [currentTab, setCurrentTab] = useState<string>('home');
@@ -202,6 +254,25 @@ export default function App() {
     setIsCartOpen(false);
     setIsCheckoutOpen(true);
   };
+
+  // Wishlist Handlers
+  const handleToggleWishlist = (productId: string) => {
+    setWishlistProductIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(productId)) {
+        next.delete(productId);
+        showToast('Removed item from Wishlist');
+      } else {
+        next.add(productId);
+        showToast('Saved item to Wishlist');
+      }
+      return next;
+    });
+  };
+
+  const wishlistProducts = useMemo(() => {
+    return products.filter((p) => wishlistProductIds.has(p.id));
+  }, [products, wishlistProductIds]);
 
   // 4. Order Checkout & Payment Handlers
   const handleInitiatePayment = (draft: {
@@ -369,11 +440,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-stone-100 selection:bg-red-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-stone-100 selection:bg-[#0c432d] selection:text-white">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 bg-stone-900 text-white px-4 py-2.5 rounded-xl shadow-2xl border border-stone-700 text-xs font-bold animate-in fade-in slide-in-from-top-3 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+        <div className="fixed top-20 right-6 z-50 bg-[#0c432d] text-white px-4 py-2.5 rounded-xl shadow-2xl border border-emerald-700 text-xs font-bold animate-in fade-in slide-in-from-top-3 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -391,6 +462,10 @@ export default function App() {
         cartCount={totalCartCount}
         cartTotal={totalCartAmount}
         openCart={() => setIsCartOpen(true)}
+        wishlistCount={wishlistProductIds.size}
+        onOpenWishlist={() => setIsWishlistOpen(true)}
+        currentUser={currentUser}
+        onOpenLogin={() => setIsLoginOpen(true)}
         onOpenBulkQuote={() => {
           setBulkQuoteProduct(null);
           setIsBulkQuoteOpen(true);
@@ -417,6 +492,8 @@ export default function App() {
             onShopNow={() => setCurrentTab('shop')}
             onSelectCategory={handleSelectCategory}
             cartProductIds={cartProductIds}
+            wishlistProductIds={wishlistProductIds}
+            onToggleWishlist={handleToggleWishlist}
           />
         )}
 
@@ -427,6 +504,8 @@ export default function App() {
             onAddToCart={handleAddToCart}
             onOpenBulkQuoteWithProduct={handleOpenBulkQuoteWithProduct}
             cartProductIds={cartProductIds}
+            wishlistProductIds={wishlistProductIds}
+            onToggleWishlist={handleToggleWishlist}
             initialCategory={selectedCategory}
             initialSearch={searchFilter}
           />
@@ -439,6 +518,8 @@ export default function App() {
             onAddToCart={handleAddToCart}
             onOpenBulkQuoteWithProduct={handleOpenBulkQuoteWithProduct}
             cartProductIds={cartProductIds}
+            wishlistProductIds={wishlistProductIds}
+            onToggleWishlist={handleToggleWishlist}
             initialCategory="All"
           />
         )}
@@ -450,6 +531,8 @@ export default function App() {
             onAddToCart={handleAddToCart}
             onOpenBulkQuoteWithProduct={handleOpenBulkQuoteWithProduct}
             cartProductIds={cartProductIds}
+            wishlistProductIds={wishlistProductIds}
+            onToggleWishlist={handleToggleWishlist}
             initialCategory="All"
           />
         )}
@@ -586,6 +669,34 @@ export default function App() {
         onUpdateOrderStatus={handleUpdateOrderStatus}
         quotes={quotes}
         onResetDemoData={handleResetDemoData}
+      />
+
+      {/* Contractor & Customer Login Modal */}
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+        currentUser={currentUser}
+        onLogin={(user) => {
+          setCurrentUser(user);
+          showToast(`Welcome back, ${user.name}`);
+        }}
+        onLogout={() => {
+          setCurrentUser(null);
+          showToast('Signed out successfully');
+        }}
+      />
+
+      {/* Wishlist Drawer/Modal */}
+      <WishlistModal
+        isOpen={isWishlistOpen}
+        onClose={() => setIsWishlistOpen(false)}
+        wishlistProducts={wishlistProducts}
+        onRemoveFromWishlist={handleToggleWishlist}
+        onAddToCart={(p, q) => handleAddToCart(p, q)}
+        onOpenShop={() => {
+          setCurrentTab('shop');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
       />
     </div>
   );

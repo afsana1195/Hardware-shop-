@@ -38,13 +38,13 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-stone-950 text-stone-300 pt-16 pb-12 border-t-4 border-red-600">
+    <footer className="bg-[#072418] text-stone-300 pt-14 pb-10 border-t-4 border-[#0c432d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Top Feature Bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 border-b border-stone-800">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-red-600/20 border border-red-600/30 flex items-center justify-center text-red-500 shrink-0">
-              <Truck className="w-6 h-6" />
+        {/* Top Feature Highlights Bar */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-10 border-b border-white/10">
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+              <Truck className="w-5 h-5" />
             </div>
             <div>
               <div className="text-sm font-black text-white">Bangalore Site Delivery</div>
@@ -52,19 +52,19 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-              <ShieldCheck className="w-6 h-6" />
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+              <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
               <div className="text-sm font-black text-white">100% Genuine Materials</div>
-              <div className="text-xs text-stone-400">Direct factory authorized dealer</div>
+              <div className="text-xs text-stone-400">Direct factory authorized stockist</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
-              <CreditCard className="w-6 h-6" />
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+              <CreditCard className="w-5 h-5" />
             </div>
             <div>
               <div className="text-sm font-black text-white">Razorpay &amp; Site COD</div>
@@ -72,9 +72,9 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 shrink-0">
-              <Building className="w-6 h-6" />
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+              <Building className="w-5 h-5" />
             </div>
             <div>
               <div className="text-sm font-black text-white">18% GST Invoicing</div>
@@ -83,42 +83,36 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* 4 Columns: Brand, Categories, Quick Links, Newsletter */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
-          {/* Brand Info */}
+        {/* 4 Main Footer Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+          {/* Brand & Address */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-red-600 flex items-center justify-center text-white font-black shadow-md">
-                <Building className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="text-lg font-black tracking-tight text-white">
-                  JYOTI <span className="text-red-500">HARDWARE</span>
-                </div>
-                <div className="text-[10px] uppercase font-bold tracking-widest text-stone-400">
-                  &amp; Construction • Bangalore
-                </div>
-              </div>
+            <div className="flex items-center gap-2">
+              <img
+                src="/assets/reference/logo.png"
+                alt="Jyoti Hardware & Construction"
+                className="h-10 w-auto bg-white p-1 rounded-md"
+              />
             </div>
 
-            <p className="text-xs text-stone-400 leading-relaxed">
-              Your one-stop destination for UltraTech Cement, Tata Tiscon steel rebars, Bosch power tools, Asian Paints, Havells cables, Supreme plumbing lines, and industrial safety equipment.
+            <p className="text-xs text-stone-300 leading-relaxed">
+              Wholesale &amp; retail supplier for UltraTech Cement, Tata Tiscon steel rebars, Bosch power tools, Asian Paints, Havells cables, and Astral plumbing lines in Bangalore.
             </p>
 
-            <div className="space-y-2 text-xs text-stone-300 pt-2">
+            <div className="space-y-2 text-xs text-stone-300 pt-1">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <span>Makali alur maine road, Pin code 562162, Bangalore, Karnataka.</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a href="tel:6297201943" className="hover:text-white transition-colors">
+                <a href="tel:6297201943" className="hover:text-white transition-colors font-bold">
                   +91 6297201943
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-sky-400 shrink-0" />
-                <a href="mailto:tantijoyti45@gmail.com" className="hover:text-white transition-colors font-mono">
+                <Mail className="w-4 h-4 text-amber-300 shrink-0" />
+                <a href="mailto:tantijoyti45@gmail.com" className="hover:text-white transition-colors">
                   tantijoyti45@gmail.com
                 </a>
               </div>
@@ -131,8 +125,8 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Categories */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white border-b border-stone-800 pb-2">
-              Top Categories
+            <h4 className="text-xs font-black uppercase tracking-wider text-amber-400 border-b border-white/10 pb-2">
+              Product Categories
             </h4>
             <ul className="space-y-2 text-xs">
               {CATEGORIES_DATA.map((cat) => (
@@ -143,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({
                       setCurrentTab('shop');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-stone-400 hover:text-red-400 transition-colors text-left cursor-pointer"
+                    className="text-stone-300 hover:text-amber-300 transition-colors text-left cursor-pointer"
                   >
                     {cat.name}
                   </button>
@@ -154,17 +148,16 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Quick Links */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white border-b border-stone-800 pb-2">
+            <h4 className="text-xs font-black uppercase tracking-wider text-amber-400 border-b border-white/10 pb-2">
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs">
               {[
                 { id: 'shop', label: 'Shop Catalog' },
-                { id: 'categories', label: 'All Categories' },
                 { id: 'track', label: 'Track Site Order' },
-                { id: 'about', label: 'About Our Yard' },
+                { id: 'about', label: 'About Makali Yard' },
                 { id: 'contact', label: 'Contact & Location' },
-                { id: 'faq', label: 'Customer FAQ' },
+                { id: 'faq', label: 'Contractor FAQ' },
               ].map((link) => (
                 <li key={link.id}>
                   <button
@@ -172,7 +165,7 @@ export const Footer: React.FC<FooterProps> = ({
                       setCurrentTab(link.id);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-stone-400 hover:text-white transition-colors"
+                    className="text-stone-300 hover:text-white transition-colors cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -181,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenBulkQuote}
-                  className="text-red-400 font-bold hover:underline"
+                  className="text-amber-300 font-bold hover:underline cursor-pointer"
                 >
                   Request Bulk Quote
                 </button>
@@ -189,7 +182,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenAdmin}
-                  className="text-stone-500 hover:text-stone-300"
+                  className="text-stone-400 hover:text-stone-200 cursor-pointer"
                 >
                   Admin Portal
                 </button>
@@ -197,37 +190,35 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Contractor Newsletter & WhatsApp */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white border-b border-stone-800 pb-2">
-              Contractor Updates
+          {/* Contractor Rate Alerts & WhatsApp Direct */}
+          <div className="lg:col-span-3 space-y-3.5">
+            <h4 className="text-xs font-black uppercase tracking-wider text-amber-400 border-b border-white/10 pb-2">
+              Rate Alerts
             </h4>
-            <p className="text-xs text-stone-400">
-              Subscribe for weekly cement price indices, steel rate alerts, and contractor discounts.
+            <p className="text-xs text-stone-300">
+              Subscribe for weekly cement price updates and steel wholesale alerts in Bangalore.
             </p>
 
             {subscribed ? (
-              <div className="p-3 bg-emerald-950/60 border border-emerald-800 rounded-xl text-xs text-emerald-300 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>Thank you! You're subscribed to Bangalore hardware alerts.</span>
+              <div className="p-3 bg-emerald-950/80 border border-emerald-600 rounded-xl text-xs text-emerald-200 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+                <span>Thank you! Subscribed to Bangalore hardware alerts.</span>
               </div>
             ) : (
               <form onSubmit={handleNewsletter} className="space-y-2">
-                <div className="relative">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    className="w-full px-3 py-2 bg-stone-900 border border-stone-800 rounded-lg text-xs text-white placeholder:text-stone-500 focus:outline-none focus:border-red-600"
-                  />
-                </div>
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter email address"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-xs text-white placeholder:text-stone-400 focus:outline-none focus:border-amber-400"
+                />
                 <button
                   type="submit"
-                  className="w-full py-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                  className="w-full py-2 bg-amber-400 hover:bg-amber-500 text-stone-950 font-bold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <span>Subscribe for Rate Alerts</span>
+                  <span>Subscribe Alerts</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </form>
@@ -238,7 +229,7 @@ export const Footer: React.FC<FooterProps> = ({
                 href="https://wa.me/916297201943?text=Hello%20Jyoti%20Hardware"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>WhatsApp: +91 6297201943</span>
@@ -247,19 +238,19 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Payment Badges */}
-        <div className="pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+        {/* Bottom Bar: Copyright & Payment Partners */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
           <div>
             &copy; {new Date().getFullYear()} Jyoti Hardware &amp; Construction. All rights reserved. Makali Alur Main Road, Bangalore 562162.
           </div>
 
           <div className="flex items-center gap-2 flex-wrap justify-center">
-            <span className="text-[11px] font-bold text-stone-400">Payment Partners:</span>
-            {['Razorpay', 'UPI', 'Google Pay', 'PhonePe', 'Paytm', 'Visa', 'Mastercard', 'RuPay', 'COD'].map(
+            <span className="text-[11px] font-bold text-stone-400">Payment Modes:</span>
+            {['Razorpay', 'UPI', 'Google Pay', 'PhonePe', 'Paytm', 'Visa', 'Mastercard', 'RuPay', 'Site COD'].map(
               (p) => (
                 <span
                   key={p}
-                  className="px-2 py-0.5 rounded bg-stone-900 border border-stone-800 text-[10px] font-semibold text-stone-300"
+                  className="px-2 py-0.5 rounded bg-white/10 border border-white/15 text-[10px] font-semibold text-stone-200"
                 >
                   {p}
                 </span>

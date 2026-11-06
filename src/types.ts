@@ -105,3 +105,12 @@ export interface StoreConfig {
   expressShippingFee: number;
   taxRate: number; // 0.18 for 18% GST
 }
+
+export interface UserProfile {
+  name: string;
+  phone: string;
+  email: string;
+  role: 'contractor' | 'builder' | 'homeowner' | 'engineer';
+  companyName?: string;
+  gstNumber?: string;
+}

@@ -70,17 +70,25 @@ export function filterAndSortProducts(
     result = result.filter((p) => {
       const pCat = p.category.toLowerCase().trim();
       if (pCat === target) return true;
-      if (target === 'plumbing' && pCat.includes('plumb')) return true;
-      if (target === 'plumbing supplies' && pCat.includes('plumb')) return true;
       if (
-        (target === 'building materials' || target === 'cement & construction materials') &&
+        (target.includes('cement') || target.includes('construction') || target.includes('building material')) &&
         (pCat.includes('cement') || pCat.includes('building material') || pCat.includes('construction'))
       ) {
         return true;
       }
+      if (target.includes('tool') && pCat.includes('tool')) return true;
+      if (target.includes('paint') && pCat.includes('paint')) return true;
+      if (target.includes('electric') && (pCat.includes('electric') || pCat.includes('cable'))) return true;
+      if (target.includes('plumb') && (pCat.includes('plumb') || pCat.includes('pipe'))) return true;
       if (
-        (target === 'adhesives & waterproofing' || target === 'adhesives & fasteners') &&
-        (pCat.includes('adhesive') || pCat.includes('waterproof') || pCat.includes('fastener'))
+        (target.includes('hardware') || target.includes('fastener')) &&
+        (pCat.includes('hardware') || pCat.includes('fastener') || pCat.includes('lock') || pCat.includes('screw'))
+      ) {
+        return true;
+      }
+      if (
+        (target.includes('adhesive') || target.includes('waterproof')) &&
+        (pCat.includes('adhesive') || pCat.includes('waterproof'))
       ) {
         return true;
       }

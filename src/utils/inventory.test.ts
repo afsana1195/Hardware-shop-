@@ -95,3 +95,27 @@ test('filterAndSortProducts correctly filters by category and search keyword', (
   assert.equal(results.length, 1);
   assert.equal(results[0].id, 'p1');
 });
+
+test('filterAndSortProducts sorts by price-asc and price-desc', () => {
+  const ascFilters: FilterState = {
+    search: '',
+    category: 'All',
+    brands: [],
+    priceRange: [0, 100000],
+    inStockOnly: false,
+    minRating: 0,
+    sortBy: 'price-asc',
+  };
+  const ascResults = filterAndSortProducts(testProducts, ascFilters);
+  assert.equal(ascResults[0].price <= ascResults[1].price, true);
+  assert.equal(ascResults[1].price <= ascResults[2].price, true);
+
+  const descFilters: FilterState = {
+    ...ascFilters,
+    sortBy: 'price-desc',
+  };
+  const descResults = filterAndSortProducts(testProducts, descFilters);
+  assert.equal(descResults[0].price >= descResults[1].price, true);
+  assert.equal(descResults[1].price >= descResults[2].price, true);
+});
+
