@@ -92,6 +92,7 @@ export const ShopView: React.FC<ShopViewProps> = ({
   }, [products, filters, onlyOnSale]);
 
   // Pagination
+  const itemsPerPage = 12;
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage) || 1;
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;

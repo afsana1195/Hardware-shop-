@@ -26,6 +26,7 @@ import { RazorpayModal } from './components/RazorpayModal';
 import { OrderConfirmationModal } from './components/OrderConfirmationModal';
 import { TrackOrderView } from './components/TrackOrderView';
 import { BulkQuoteModal } from './components/BulkQuoteModal';
+import { BulkOrderView } from './components/BulkOrderView';
 import { AdminDashboard } from './components/AdminDashboard';
 import { AboutView } from './components/AboutView';
 import { ContactView } from './components/ContactView';
@@ -170,6 +171,41 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchFilter, setSearchFilter] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  // Tab Navigation with browser history & Android back button support
+  const navigateTab = (newTab: string, pushHistory = true) => {
+    setCurrentTab(newTab);
+    if (pushHistory) {
+      const hash = newTab === 'home' ? '' : `#${newTab}`;
+      const url = `${window.location.pathname}${hash}`;
+      window.history.pushState({ tab: newTab }, '', url);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handlePopState = (e: PopStateEvent) => {
+      if (e.state && typeof e.state.tab === 'string') {
+        setCurrentTab(e.state.tab);
+      } else {
+        const hash = window.location.hash.replace('#', '');
+        setCurrentTab(hash || 'home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    // Initialize history state on load
+    const initialHash = window.location.hash.replace('#', '');
+    if (initialHash) {
+      setCurrentTab(initialHash);
+      window.history.replaceState({ tab: initialHash }, '', window.location.href);
+    } else {
+      window.history.replaceState({ tab: 'home' }, '', window.location.href);
+    }
+
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Modals & Drawers
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -422,8 +458,7 @@ export default function App() {
 
   const handleSelectCategory = (catName: string) => {
     setSelectedCategory(catName);
-    setCurrentTab('shop');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigateTab('shop');
   };
 
   const handleSearchSubmit = (query: string, category?: string) => {
@@ -431,12 +466,12 @@ export default function App() {
     if (category && category !== 'All') {
       setSelectedCategory(category);
     }
-    setCurrentTab('shop');
+    navigateTab('shop');
   };
 
   const handleOpenBulkQuoteWithProduct = (product: Product) => {
     setBulkQuoteProduct(product);
-    setIsBulkQuoteOpen(true);
+    navigateTab('bulk');
   };
 
   return (
@@ -453,10 +488,11 @@ export default function App() {
       <Navbar
         currentTab={currentTab}
         setCurrentTab={(tab) => {
-          setCurrentTab(tab);
           if (tab === 'categories') {
             setSelectedCategory('All');
-            setCurrentTab('shop');
+            navigateTab('shop');
+          } else {
+            navigateTab(tab);
           }
         }}
         cartCount={totalCartCount}
@@ -468,7 +504,7 @@ export default function App() {
         onOpenLogin={() => setIsLoginOpen(true)}
         onOpenBulkQuote={() => {
           setBulkQuoteProduct(null);
-          setIsBulkQuoteOpen(true);
+          navigateTab('bulk');
         }}
         onOpenAdmin={() => setIsAdminOpen(true)}
         products={products}
@@ -486,10 +522,10 @@ export default function App() {
             onAddToCart={handleAddToCart}
             onOpenBulkQuote={() => {
               setBulkQuoteProduct(null);
-              setIsBulkQuoteOpen(true);
+              navigateTab('bulk');
             }}
             onOpenBulkQuoteWithProduct={handleOpenBulkQuoteWithProduct}
-            onShopNow={() => setCurrentTab('shop')}
+            onShopNow={() => navigateTab('shop')}
             onSelectCategory={handleSelectCategory}
             cartProductIds={cartProductIds}
             wishlistProductIds={wishlistProductIds}
@@ -508,6 +544,19 @@ export default function App() {
             onToggleWishlist={handleToggleWishlist}
             initialCategory={selectedCategory}
             initialSearch={searchFilter}
+          />
+        )}
+
+        {currentTab === 'bulk' && (
+          <BulkOrderView
+            onBackToShop={() => navigateTab('shop')}
+            onNavigateToHome={() => navigateTab('home')}
+            preselectedProduct={bulkQuoteProduct}
+            onSubmitQuote={(quote) => {
+              setQuotes((prev) => [quote, ...prev]);
+              showToast(`Quote request #${quote.id} registered`);
+            }}
+            cartCount={totalCartCount}
           />
         )}
 
@@ -543,10 +592,10 @@ export default function App() {
 
         {currentTab === 'about' && (
           <AboutView
-            onShopNow={() => setCurrentTab('shop')}
+            onShopNow={() => navigateTab('shop')}
             onOpenBulkQuote={() => {
               setBulkQuoteProduct(null);
-              setIsBulkQuoteOpen(true);
+              navigateTab('bulk');
             }}
           />
         )}
@@ -558,10 +607,10 @@ export default function App() {
 
       {/* Footer */}
       <Footer
-        setCurrentTab={setCurrentTab}
+        setCurrentTab={(tab) => navigateTab(tab)}
         onOpenBulkQuote={() => {
           setBulkQuoteProduct(null);
-          setIsBulkQuoteOpen(true);
+          navigateTab('bulk');
         }}
         onOpenAdmin={() => setIsAdminOpen(true)}
         onSelectCategory={handleSelectCategory}
@@ -571,7 +620,7 @@ export default function App() {
       <WhatsAppFloatingButton
         onOpenBulkQuote={() => {
           setBulkQuoteProduct(null);
-          setIsBulkQuoteOpen(true);
+          navigateTab('bulk');
         }}
         cartCount={totalCartCount}
         openCart={() => setIsCartOpen(true)}
@@ -655,6 +704,10 @@ export default function App() {
           setQuotes((prev) => [quote, ...prev]);
           showToast(`Quote request #${quote.id} registered`);
         }}
+        onNavigateToShop={() => {
+          setIsBulkQuoteOpen(false);
+          navigateTab('shop');
+        }}
       />
 
       {/* Staff Admin Dashboard */}
@@ -693,10 +746,7 @@ export default function App() {
         wishlistProducts={wishlistProducts}
         onRemoveFromWishlist={handleToggleWishlist}
         onAddToCart={(p, q) => handleAddToCart(p, q)}
-        onOpenShop={() => {
-          setCurrentTab('shop');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        onOpenShop={() => navigateTab('shop')}
       />
     </div>
   );

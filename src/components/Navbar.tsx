@@ -397,7 +397,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     key={item.id}
                     onClick={() => {
                       if (item.id === 'bulk') {
-                        onOpenBulkQuote();
+                        setCurrentTab('bulk');
                       } else if (item.id === 'deals') {
                         setCurrentTab('shop');
                       } else if (item.id === 'brands') {
@@ -425,7 +425,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Right: Quick Contractor Quote Button */}
             <div className="hidden lg:flex items-center">
               <button
-                onClick={onOpenBulkQuote}
+                onClick={() => {
+                  setCurrentTab('bulk');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className="bg-amber-400 hover:bg-amber-500 text-stone-950 text-xs font-extrabold uppercase tracking-wider px-4 py-1.5 rounded-lg shadow-xs hover:shadow transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5 text-stone-900" />
@@ -446,7 +449,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.id}
                 onClick={() => {
                   if (item.id === 'bulk') {
-                    onOpenBulkQuote();
+                    setCurrentTab('bulk');
                   } else if (item.id === 'deals' || item.id === 'brands') {
                     setCurrentTab('shop');
                   } else {
